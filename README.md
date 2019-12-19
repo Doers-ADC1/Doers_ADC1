@@ -1,2 +1,8 @@
 # Doers_ADC1
-Our team GitHub project
+## meroSathi
+
+Team Members
++ Sasmita Gurung
++ Aishwarya Gurung
++ Tsering Sherpa
++ Suresh Karki
