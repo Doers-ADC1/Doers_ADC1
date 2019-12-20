@@ -1,6 +1,12 @@
 In programming, the Single Responsibility Principle states that every module or class should have
 responsibility over a single part of the functionality provided by the software.
 
+One benefit of Single Responsibility Principle is that it makes your software easier to implement and prev
+ents unexpected side-effects of future changes.
+
+
+Example:
+
 class User
 {
     void CreatePost(Database db, string postMessage)
