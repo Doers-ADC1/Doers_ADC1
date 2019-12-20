@@ -1,0 +1,49 @@
+The Liskov Substitution Principle states that any class that is the child of a parent class should be usable in place of its parent without any unexpected behaviour.
+If S is a subtype of T, then objects of type T in a program may be replaced with objects of type S without altering any of the desirable properties of that program
+
+One rule that should be abided by in PHP is that any method should return the same type as that of its parent. For example, if the search method of T returns an instance of Illuminate\\Support\\Collection then any search method of S should also return an Illuminate\\Support\\Collection.
+
+The four conditions for abiding by the Liskov Substitution principle are as follows:
+Method signatures must match
+
+    Methods must take the same parameters
+
+The preconditions for any method can’t be greater than that of its parent
+
+    Any inherited method should not have more conditionals that change the return of that method, such as throwing an Exception
+
+Post conditions must be at least equal to that of its parent
+
+  Inherited methods should return the same type as that of its parent
+
+Exception types must match
+
+  If a method is designed to return a FileNotFoundException in the event of an error, the same condition in the inherited method must return a FileNotFoundException too
+ for example:
+ 
+ interface LessonRepositoryInterface
+{
+    /**
+     * Gets all lessons.
+     *
+     * @return array
+     */
+     public function getAll();
+}
+
+class FilesystemLessonRepository implements LessonRepositoryInterface
+{
+    public function getAll()
+    {
+        // Fetch the lessons from the filesystem
+        return $files;
+    }
+}
+
+class DatabaseLessonRepository implements LessonRepositoryInterface
+{
+    public function getAll()
+    {
+        return Lesson::all()->toArray();
+    }
+}
