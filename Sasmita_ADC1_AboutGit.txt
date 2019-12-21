@@ -1,2 +1,33 @@
+Git
+It is a distributed version control system where distrubuted means that all developers within a team have a complete version of the project. A version control system is a software which effectively manage application versions.
+
 1. git clone
 
+Git clone copy a git repository from remote source, also sets the remote to original source so that you can pull again.
+
+Syntax: git clone "git url"
+
+2. git push
+Git push commands move your code from a local repository to a remote repository.
+
+Syntax: git push origin -b "branch name"
+
+3. git pull
+Git pull commands pull your team collective code from a remote repository.
+
+Syntax: git pull origine -b "branch name" 
+
+4. merge conflict
+Merge conflict merge two branches you were working on.
+
+Syntax: git merge "branches"
+ 
+5. git branches
+Git branches lists out all the branches. In the simple terms branches store various of project: a stable app, an app for testing, an app for features development and so on. 
+
+Syntax: git branch or git branch -a
+
+6. git commit
+Git commit commits your change and sets it on new commit object for your remote.
+
+Syntax: git commit -m "commit message"
