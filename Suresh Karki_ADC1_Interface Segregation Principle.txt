@@ -1,0 +1,38 @@
+﻿
+Interface segregation principle:
+
+
+This principle is fairly easy to comprehend.
+In fact, if you’re used to using interfaces, chances are that you’re already applying this principle.
+If not, it’s time to start doing it!
+In programming, the interface segregation principle states that no client should be forced to depend on methods it does not use.
+Put more simply: Do not add additional functionality to an existing interface by adding new methods.
+Instead, create a new interface and let your class implement multiple interfaces if needed.
+Let’s look at an example of how to violate the interface segregation principle.
+
+interface IPost
+{
+void CreatePost();
+}
+
+interface IPostNew
+{
+void CreatePost();
+void ReadPost();
+}
+In this example, let’s pretend that I first have an IPost interface with the signature of a CreatePost() method. 
+Later on, I modify this interface by adding a new method ReadPost(), so it becomes like the IPostNew interface.
+This is where we violate the interface segregation principle.
+Instead, simply create a new interface.
+
+interface IPostCreate
+{
+void CreatePost();
+}
+
+interface IPostRead
+{
+void ReadPost();
+}
+If any class might need both the CreatePost() method and the ReadPost() method, it will implement both interfaces.
+
