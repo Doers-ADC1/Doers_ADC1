@@ -1,0 +1,72 @@
+Open Closed Principle
+The open closed Principle state that software entities which should be open for extension, but closed for modification. It is a principle for object oriented design first described by Bertrand Meyer. In practice Open Closed Principle means creating software entities whose behavior can be changed without the need to edit  and recompile the code itself.  
+
+Example of Open Closed Principle:
+Calculating area of Rectangles class
+
+We creating a class Rectangle with having two attributes length and width.
+Rectangle
+public class Rectangle{
+public double length;
+public double width;
+}
+
+Next we create a class to calculate area of this Rectangle which having a method calculateRectangleArea() which takes the Rectangle as an input parameter and calculate its area.
+AreaCalculator
+public class AreaCalculator{
+public double calculateRectangleArea(Rectangle rectangle){
+	return rectangle.length*rectangle.width;
+	}
+
+}
+
+Now creating a class Circle with having single attributes radius. 
+Circle
+public class Circle{
+public double radius;
+}
+
+Then modify the AreaCalculator class to add circle calculation through a new method calculateCircleArea().
+public class AreaCalculator{
+public double calculateCircleArea(Rectangle rectangle){
+	return rectangle.length*rectangle.width;
+	}
+
+public double calculateCircleArea(Circle circle){
+	return (22/7)*circle.radius*circle.radius;	
+	}
+}
+
+Modification of above design to comply with Open Closed Principle
+Make design extensible for this need to define a base type Shape and have Circle and Rectangle implement Shape interface.
+Shape
+public interface Shape{
+public double calculateArea();
+}
+
+public class Rectangle implements Shape{
+	double length;
+	double width;
+	public double calculateArea(){
+	return length*width;
+	}
+}
+
+public class Circle implements Shape{
+	public double radius;
+	public double calcutaleArea(){
+	return (22/7)*radius*radius;
+
+	}
+}
+
+In this case costumer will be the AreaCalculator class which would now look like this.
+AreaCalculator
+public class AreaCalculator(){
+	public double calculateShapeArea(Shape Shape){
+	return shape.calculateArea();
+	}
+}
+
+This AreaCalculator class remove our design flaws noted above and give a clean solution surface to the Open Closed Principle. 
+
